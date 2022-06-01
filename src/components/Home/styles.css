@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
+.home__page{
+    width: 100%;
+    height:100vh;
+    max-width: 100%;
+    opacity: 0.65;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    font-family: 'Kanit', sans-serif;
+    font-size:3rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
