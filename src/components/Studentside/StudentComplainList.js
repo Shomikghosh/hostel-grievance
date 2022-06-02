@@ -125,11 +125,13 @@ function StudentComplainList() {
                     <div><strong>Date:</strong>{item.date}</div>
                     <div><strong>Topic:</strong>{item.topic}</div>
                     <div><strong>Feedback:</strong>{item.feedback?item.feedback:"No feedback"}</div>
+                    <Box sx={{display:'flex'}}>
                     {item.status===0?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>Registered</Button>:null}
                     {item.status===1?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>On Process</Button>:null}
                     {item.status===2?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>Fulfilled</Button>:null}
                     <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black'}} onClick={(event)=>{handleClickOpen(item.cid)}}>Feedback</Button>
                     <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black'}} onClick={(event)=>{reComplain(item.cid)}}>Re-complain</Button>
+                    </Box>
                 </div>
               )
               })}

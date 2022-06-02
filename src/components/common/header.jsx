@@ -12,7 +12,7 @@ function header() {
     <>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-        <Navbar.Brand href="/">Hostel Grievence</Navbar.Brand>
+        <Navbar.Brand href="/">Sikayat Niwas</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -25,9 +25,22 @@ function header() {
                 <Navbar.Brand href="/student-home/profile">Profile</Navbar.Brand>
                 <Navbar.Brand onClick={handleLogout} style={{cursor:"pointer"}}>Logout</Navbar.Brand>
               </>
-              ):(<NavDropdown title="Login/SignUp" id="collasible-nav-dropdown">
-                  <NavDropdown.Item href="/login">Login/Signup</NavDropdown.Item>
+              ):null
+              }
+              {localStorage.getItem('person')==='admin'?(
+                <>
+                <Navbar.Brand href="/admin-home/profile">Profile</Navbar.Brand>
+                <Navbar.Brand onClick={handleLogout} style={{cursor:"pointer"}}>Logout</Navbar.Brand>
+              </>
+              ):null
+              }
+              {localStorage.getItem('person')===''||localStorage.getItem('person')===null?(
+                <>
+                (<NavDropdown title="Register/Login" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/login">Register/Login</NavDropdown.Item>
               </NavDropdown>)
+              </>
+              ):null
               }
               
             </Nav>

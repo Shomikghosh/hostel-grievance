@@ -1,11 +1,20 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Header from '../common/header'
 import Footer from '../common/footer'
 import Golden from '../../assets/goldenjublee.JPG'
 import './styles.css'
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 function Home() {
+  let history = useNavigate()
 
+  useEffect(() => {
+    if(localStorage.getItem('person')==='student')
+    history('/student-home/profile'); 
+    if(localStorage.getItem('person')==='admin')
+    history('/admin-home/profile'); 
+    }, [])
+  
   return (
     <>
         <Header/>

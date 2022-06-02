@@ -5,6 +5,7 @@ import Login from './components/Login/Main';
 import Studentside from './components/Studentside/StudentsideForm';
 import Profile from './components/Studentside/Profile';
 import StudentComplainList from './components/Studentside/StudentComplainList';
+import Adminmain from './components/Adminside/Adminmain';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/student-home/add-complain" element={<Studentside/>}></Route>
       <Route path="/student-home/profile" element={<Profile/>}></Route>
       <Route path="/student-home/complain-list" element={<StudentComplainList/>}></Route>
+      <Route path="/admin-home/profile" element={<Adminmain/>}></Route>
     </Routes>
   </Router>
   );

@@ -66,7 +66,7 @@ export default function BasicTextFields() {
               console.log(data)
                 localStorage.setItem('access-token', data.access)
                 localStorage.setItem('person','admin')
-                history("/ps")
+                history("/admin-home/profile")
                 setLoader(false);
                 setps(false);
                 setadmin(false);
@@ -91,12 +91,10 @@ export default function BasicTextFields() {
           setLoader(false);
         }else if(response.status === 200){
           response.json()
-          
           .then(data => {
             localStorage.setItem('access-token', data.access)
             localStorage.setItem('usn', details.usn)
             localStorage.setItem('person','student')
-              
               setLoader(false);
             }).then(()=>{
             
