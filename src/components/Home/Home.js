@@ -8,12 +8,10 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   let history = useNavigate()
 
-  useEffect(() => {
     if(localStorage.getItem('person')==='student')
     history('/student-home/profile'); 
     if(localStorage.getItem('person')==='admin')
     history('/admin-home/profile'); 
-    }, [])
   
   return (
     <>
