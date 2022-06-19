@@ -130,7 +130,7 @@ function Profile() {
             <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
             <Header/>
                 <Box sx={{minHeight:'100vh',margin:'5vh 2rem',display:'flex',alignItem:'center',justifyContent:'center',flexDirection:'column'}}>
-                    <Box sx={{ display: 'flex',marginBottom:'1.3rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'royalblue',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Student Profile Upadte</Box>
+                    <Box sx={{ display: 'flex',marginBottom:'1.3rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'royalblue',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Student Profile </Box>
                     <TextField id="outlined-disabled" InputLabelProps={{ shrink: true}} onChange={handleChangesss('name')} label="Name" value={studentdetails.name} style={{ marginBottom: "1rem" }} fullWidth/>
                     <TextField id="outlined-disabled" InputLabelProps={{ shrink: true}} onChange={handleChangesss('email')} label="Email" value={studentdetails.email} style={{ marginBottom: "1rem" }} fullWidth/>
                     <TextField id="outlined-disabled" InputLabelProps={{ shrink: true}} onChange={handleChangesss('srn')} label="SRN" value={studentdetails.srn} style={{ marginBottom: "1rem" }} fullWidth/>
