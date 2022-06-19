@@ -29,8 +29,7 @@ function header() {
               }
               {localStorage.getItem('person')==='admin'?(
                 <>
-                <Navbar.Brand href="/admin-home/profile">Profile</Navbar.Brand>
-                <Navbar.Brand onClick={handleLogout} style={{cursor:"pointer"}}>Logout</Navbar.Brand>
+\                <Navbar.Brand onClick={handleLogout} style={{cursor:"pointer"}}>Logout</Navbar.Brand>
               </>
               ):null
               }
