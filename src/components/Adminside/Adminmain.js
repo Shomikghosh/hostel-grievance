@@ -95,20 +95,23 @@ function Adminmain() {
         <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <Header/>
         <Box sx={{minHeight:'100vh',display:'flex',flexDirection:'column'}}>
-          <Box sx={{ display: 'grid',margin:'1.3rem 0.7rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'black',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Complains</Box>
+          <Box sx={{ display: 'grid',margin:'1.3rem 0.7rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'royalblue',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Complains</Box>
             <Box sx={{gridTemplateColumns: 'repeat(3, 1fr)',gridTemplateRows: '1fr',display:'grid'}}>
               {complainlist?.map((item,i)=>{return(
                 <div style={{boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',margin:'1rem 3rem',padding:'1rem',borderRadius:'1rem',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
-                    <div><strong>Cid:</strong>{item.cid}</div>
+                    <div><strong>Complain Id:</strong>{item.cid}</div>
                     <div><strong>Description:</strong>{item.description}</div>
                     <div><strong>USN:</strong>{item.usn}</div>
                     <div><strong>Date:</strong>{item.date}</div>
                     <div><strong>Topic:</strong>{item.topic}</div>
+                    {item.status===0?(<div><strong>Status:</strong>New Complain</div>):null}
+                    {item.status===1?(<div><strong>Status:</strong>In Process</div>):null}
+                    {item.status===2?(<div><strong>Status:</strong>Finished</div>):null}
                     <div><strong>Feedback:</strong>{item.feedback?item.feedback:"No feedback"}</div>
                     <Box sx={{display:'flex'}}>
-                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }} onClick={(event)=>{startPro(1,item.cid)}}>Start</Button>
-                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }} onClick={(event)=>{endPro(2,item.cid)}}>Finish</Button>
-                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black'}} onClick={(event)=>{handleblock(item.cid)}}>Block</Button>
+                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue' }} onClick={(event)=>{startPro(1,item.cid)}}>Start</Button>
+                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue' }} onClick={(event)=>{endPro(2,item.cid)}}>Finish</Button>
+                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue'}} onClick={(event)=>{handleblock(item.cid)}}>Block</Button>
                     </Box>
                 </div>
               )

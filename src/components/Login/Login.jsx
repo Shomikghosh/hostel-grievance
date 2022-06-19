@@ -11,6 +11,9 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loading/Loading'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function BasicTextFields() {
   const [loading,setLoader]=useState(false);
 
@@ -59,7 +62,15 @@ export default function BasicTextFields() {
             response.json()
             setLoader(false);
             setps(true);
-            
+            toast.error("Wrong password of admin try again!", {
+              position: "bottom-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           }else if(response.status === 200){
             response.json()
             .then(data => {
@@ -73,7 +84,15 @@ export default function BasicTextFields() {
               })
         }else{
           setLoader(false);
-    
+          toast.error("Server error", {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
         }
     ).catch((error) => console.error('Error:', error))
@@ -89,6 +108,15 @@ export default function BasicTextFields() {
         if(response.status === 400){
           response.json()
           setLoader(false);
+          toast.error("Wrong username or password try again!", {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }else if(response.status === 200){
           response.json()
           .then(data => {
@@ -102,9 +130,17 @@ export default function BasicTextFields() {
   
             })
       }
-      else{
+      else if(response.status===500){
         setLoader(false);
-  
+        toast.error("Server error", {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }}
       )
       .catch((error) => console.error('Error:', error))
@@ -127,12 +163,30 @@ export default function BasicTextFields() {
       if(response.status === 422){
         response.json()
         setLoader(false);
+        toast.success("Invalid mail or usn", {
+          position: "bottom-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }else if(response.status === 200){
         response.json()
         
         .then(data => {
             localStorage.setItem('access-token', data.access)
             setLoader(false);
+            toast.success("Mail has been sent", {
+              position: "bottom-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           }).then(()=>{
           })
     }
@@ -159,6 +213,7 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
+            <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <div className="loginstudent__whole">
             <TextField id="standard-basic" label="USN" variant="standard" values={valuesLogin.usn}               
             onChange={handleChange('usn')}

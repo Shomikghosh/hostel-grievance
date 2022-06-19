@@ -4,6 +4,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Loader from "../Loading/Loading";
 import Box from '@mui/material/Box';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
     const [loading, setLoader] = useState(false);
@@ -39,13 +41,32 @@ function Register() {
             if (response.status === 422) {
               response.json();
               setLoader(false);
+              toast.error("Wrong format", {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
             } else if (response.status === 200) {
               response
                 .json()
                 .then((data) => {
                   setLoader(false);
                 })
-                .then(() => {});
+                .then(() => {
+                  toast.success("Registration success!", {
+                    position: "bottom-left",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                  });
+                });
             } else {
               setLoader(false);
             }
@@ -55,6 +76,7 @@ function Register() {
 
   return (
     <>
+                <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     <Box
       component="form"
       sx={{

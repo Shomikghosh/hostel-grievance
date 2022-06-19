@@ -115,7 +115,7 @@ function StudentComplainList() {
         <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         <Header/>
         <Box sx={{minHeight:'100vh',display:'flex',flexDirection:'column'}}>
-          <Box sx={{ display: 'grid',margin:'1.3rem 0.7rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'black',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Complains</Box>
+          <Box sx={{ display: 'grid',margin:'1.3rem 0.7rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'royalblue',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Complains</Box>
             <Box sx={{gridTemplateColumns: 'repeat(3, 1fr)',gridTemplateRows: '1fr',display:'grid'}}>
               {complainlist?.map((item,i)=>{return(
                 <div style={{boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',margin:'1rem 3rem',padding:'1rem',borderRadius:'1rem',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
@@ -126,11 +126,11 @@ function StudentComplainList() {
                     <div><strong>Topic:</strong>{item.topic}</div>
                     <div><strong>Feedback:</strong>{item.feedback?item.feedback:"No feedback"}</div>
                     <Box sx={{display:'flex'}}>
-                    {item.status===0?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>Registered</Button>:null}
-                    {item.status===1?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>On Process</Button>:null}
-                    {item.status===2?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black' }}>Fulfilled</Button>:null}
-                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black'}} onClick={(event)=>{handleClickOpen(item.cid)}}>Feedback</Button>
-                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'black'}} onClick={(event)=>{reComplain(item.cid)}}>Re-complain</Button>
+                    {item.status===0?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue' }}>Registered</Button>:null}
+                    {item.status===1?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue' }}>On Process</Button>:null}
+                    {item.status===2?<Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue' }}>Fulfilled</Button>:null}
+                    <Button variant="contained" disabled={item.status===2?false:true} size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue'}} onClick={(event)=>{handleClickOpen(item.cid)}}>Feedback</Button>
+                    <Button variant="contained" size="medium" sx={{  margin: "1vh auto",backgroundColor:'royalblue'}} onClick={(event)=>{reComplain(item.cid)}}>Re-complain</Button>
                     </Box>
                 </div>
               )
