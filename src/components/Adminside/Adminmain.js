@@ -90,6 +90,7 @@ function Adminmain() {
         });
       })
     }
+    console.log(complainlist)
   return (
     <>
         <ToastContainer position="bottom-left" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
@@ -97,13 +98,17 @@ function Adminmain() {
         <Box sx={{minHeight:'100vh',display:'flex',flexDirection:'column'}}>
           <Box sx={{ display: 'grid',margin:'1.3rem 0.7rem',alignItems: 'center',justifyContent: 'center',backgroundColor: 'royalblue',color: 'white',fontSize: '1.3rem',padding:'0.5rem',borderRadius: '5px'}}>Complains</Box>
             <Box sx={{gridTemplateColumns: 'repeat(3, 1fr)',gridTemplateRows: '1fr',display:'grid'}}>
-              {complainlist?.map((item,i)=>{return(
+              {complainlist.details?.map((item,i)=>{return(
                 <div style={{boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',margin:'1rem 3rem',padding:'1rem',borderRadius:'1rem',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
                     <div><strong>Complain Id:</strong>{item.cid}</div>
                     <div><strong>Description:</strong>{item.description}</div>
                     <div><strong>USN:</strong>{item.usn}</div>
                     <div><strong>Date:</strong>{item.date}</div>
-                    <div><strong>Topic:</strong>{item.topic}</div>
+                    <div><strong>User Name:</strong>{complainlist.user[i]?.name}</div>
+                    <div><strong>USN:</strong>{complainlist.user[i]?.usn}</div>
+                    <div><strong>Email:</strong>{complainlist.user[i]?.email}</div>
+                    <div><strong>Block:</strong>{complainlist.user[i]?.block}</div>
+                    <div><strong>Room:</strong>{complainlist.user[i]?.room}</div>
                     {item.status===0?(<div><strong>Status:</strong>New Complain</div>):null}
                     {item.status===1?(<div><strong>Status:</strong>In Process</div>):null}
                     {item.status===2?(<div><strong>Status:</strong>Finished</div>):null}
