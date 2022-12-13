@@ -24,7 +24,7 @@ function StudentsideForm() {
       const postComplain=()=>{
         const data = JSON.stringify(feedback);
     
-        fetch("https://hostel-complaint-backend.herokuapp.com/student/home/register_complain/"+localStorage.getItem("usn").toUpperCase() , {
+        fetch("https://web-production-945f.up.railway.app/student/home/register_complain/"+localStorage.getItem("usn").toUpperCase() , {
           method: 'POST',
           body:data,
           headers: {

@@ -16,7 +16,7 @@ function Profile() {
     }, [])    
     const [studentdetails, setStudentDetails] = useState("");
     useEffect(() => {
-        fetch("https://hostel-complaint-backend.herokuapp.com/student/home/view_user/" + localStorage.getItem("usn"), {
+        fetch("https://web-production-945f.up.railway.app/student/home/view_user/" + localStorage.getItem("usn"), {
         method: "GET",
         headers: {
             accept: "application/json",
@@ -47,7 +47,7 @@ function Profile() {
         } else {
           if (pass.newpass === pass.confmnew) {
             fetch(
-                "https://hostel-complaint-backend.herokuapp.com/auth/home/password/changepassword/" +
+                "https://web-production-945f.up.railway.app/auth/home/password/changepassword/" +
                 localStorage.getItem("usn") +
                 "?oldpass=" +
                 pass.oldpass +
@@ -102,7 +102,7 @@ function Profile() {
         studentdetails.sem=parseInt(studentdetails.sem)
         const data = JSON.stringify(studentdetails);
     
-        fetch("https://hostel-complaint-backend.herokuapp.com/student/home/edit_user/"+localStorage.getItem('usn').toUpperCase(), {
+        fetch("https://web-production-945f.up.railway.app/student/home/edit_user/"+localStorage.getItem('usn').toUpperCase(), {
           method: 'POST',
           body:data,
           headers: {

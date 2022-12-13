@@ -13,7 +13,7 @@ function StudentComplainList() {
     useEffect(() => {
         if(localStorage.getItem('person')!=='student')
             history('/');
-        fetch("https://hostel-complaint-backend.herokuapp.com/student/home/status_complain/" + localStorage.getItem("usn"), {
+        fetch("https://web-production-945f.up.railway.app/student/home/status_complain/" + localStorage.getItem("usn"), {
           method: "GET",
           headers: {
               accept: "application/json",
@@ -27,7 +27,7 @@ function StudentComplainList() {
           });
     }, []) 
     const reComplain=(cid)=>{
-      fetch("https://hostel-complaint-backend.herokuapp.com/student/home/re_complain/"+localStorage.getItem("usn").toUpperCase()+"/"+cid , {
+      fetch("https://web-production-945f.up.railway.app/student/home/re_complain/"+localStorage.getItem("usn").toUpperCase()+"/"+cid , {
           method: 'GET',
           headers: {
             'accept': 'application/json',
@@ -67,7 +67,7 @@ function StudentComplainList() {
     setFeedback({ ...feedback, [prop]: event.target.value });
   };  
   const handleFormSubmit=()=>{
-      fetch("https://hostel-complaint-backend.herokuapp.com/student/home/feedback_complain/"+localStorage.getItem("usn").toUpperCase()+"/"+cid+"?feedback="+feedback.feedback , {
+      fetch("https://web-production-945f.up.railway.app/student/home/feedback_complain/"+localStorage.getItem("usn").toUpperCase()+"/"+cid+"?feedback="+feedback.feedback , {
         method: 'POST',
         headers: {
           'accept': 'application/json',

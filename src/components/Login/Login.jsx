@@ -51,7 +51,7 @@ export default function BasicTextFields() {
     }
     if(valuesLogin.usn==="SJCEHOSTEL00")
     {
-      fetch("https://hostel-complaint-backend.herokuapp.com/auth/auth/admin_login?usn="+valuesLogin.usn+"&password="+valuesLogin.password , {
+      fetch("https://web-production-945f.up.railway.app/auth/auth/admin_login?usn="+valuesLogin.usn+"&password="+valuesLogin.password , {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ export default function BasicTextFields() {
     ).catch((error) => console.error('Error:', error))
     }else{
       const data = JSON.stringify(details);
-      fetch("https://hostel-complaint-backend.herokuapp.com/auth/login?usn="+details.usn+"&password="+details.password , {
+      fetch("https://web-production-945f.up.railway.app/auth/login?usn="+details.usn+"&password="+details.password , {
         method: 'POST',
         body: data ,
          headers: {
@@ -153,7 +153,7 @@ export default function BasicTextFields() {
       "usn":valuesLogin.usn,
       "email":valuesLogin.email
     }
-    fetch("https://hostel-complaint-backend.herokuapp.com/auth/auth/forgot_password?usn="+details.usn+"&email="+details.email , {
+    fetch("https://web-production-945f.up.railway.app/auth/auth/forgot_password?usn="+details.usn+"&email="+details.email , {
         method: 'POST',
          headers: {
           'Content-Type': 'application/json'

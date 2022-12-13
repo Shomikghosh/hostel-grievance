@@ -25,7 +25,7 @@ function Register() {
           email: valueRegister.email,
         };
         fetch(
-          "https://hostel-complaint-backend.herokuapp.com/" +
+          "https://web-production-945f.up.railway.app/" +
             "auth/auth/register?usn=" +
             details.usn +
             "&email=" +

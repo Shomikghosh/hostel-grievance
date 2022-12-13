@@ -14,7 +14,7 @@ function Adminmain() {
           history('/');
   }, [])    
     useEffect(() => {
-        fetch("https://hostel-complaint-backend.herokuapp.com/admin/home/status_complaint/", {
+        fetch("https://web-production-945f.up.railway.app/admin/home/status_complaint/", {
           method: "GET",
           headers: {
               accept: "application/json",
@@ -29,7 +29,7 @@ function Adminmain() {
     }, []) 
    
     const handleblock=(cid)=>{
-      fetch("https://hostel-complaint-backend.herokuapp.com/admin/home/block/"+cid , {
+      fetch("https://web-production-945f.up.railway.app/admin/home/block/"+cid , {
         method: 'POST',
         headers: {
           'accept': 'application/json',
@@ -50,7 +50,7 @@ function Adminmain() {
     }
 
     const startPro=(newsta,cid)=>{
-      fetch("https://hostel-complaint-backend.herokuapp.com/admin/home/status/"+cid+"?status="+newsta , {
+      fetch("https://web-production-945f.up.railway.app/admin/home/status/"+cid+"?status="+newsta , {
         method: 'POST',
         headers: {
           'accept': 'application/json',
@@ -71,7 +71,7 @@ function Adminmain() {
     }
 
     const endPro=(newSta,cid)=>{
-      fetch("https://hostel-complaint-backend.herokuapp.com/admin/home/status/"+cid+"?status="+newSta , {
+      fetch("https://web-production-945f.up.railway.app/admin/home/status/"+cid+"?status="+newSta , {
         method: 'POST',
         headers: {
           'accept': 'application/json',
